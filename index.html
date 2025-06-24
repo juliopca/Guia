@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Guía Completa de Razones y Proporciones - ANGELA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #4a90e2; /* Azul vibrante */
+            --secondary-color: #50e3c2; /* Turquesa fresco */
+            --accent-color: #f5a623; /* Naranja cálido */
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Para el smooth scroll de anclas */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7; /* Ligeramente reducido para mejor lectura en móvil */
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding-top: 70px; /* Ajustado para el header fijo */
+            word-break: break-word; /* Evitar desbordamiento de texto */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px; /* Reducido padding lateral */
+        }
+
+        header.main-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 0; /* Reducido padding vertical */
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header.main-header h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2em; /* Reducido */
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        header.main-header h1 .emoji {
+            font-size: 1em;
+            vertical-align: middle;
+        }
+        header.main-header p {
+            font-size: 1em; /* Reducido */
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 10px;
+        }
+
+        nav.main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Reducido gap */
+            overflow-x: auto; /* Permite scroll horizontal si no caben */
+            padding-bottom: 5px; /* Espacio para scrollbar si aparece */
+            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        }
+        /* Para ocultar scrollbar en algunos navegadores si se desea, pero manteniendo funcionalidad */
+        nav.main-nav::-webkit-scrollbar {
+            height: 5px; /* Altura de la scrollbar */
+        }
+        nav.main-nav::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+        }
+
+
+        nav.main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px; /* Reducido padding */
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Evita que el texto del enlace se parta */
+            font-size: 0.9em;
+        }
+
+        nav.main-nav a:hover, nav.main-nav a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        section {
+            background-color: var(--card-bg);
+            margin-bottom: 25px; /* Reducido margen inferior */
+            padding: 20px; /* Reducido padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary-color);
+            margin-bottom: 15px; /* Reducido */
+            font-size: 1.8em; /* Reducido */
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px; /* Reducido */
+        }
+        h2 .emoji { font-size: 0.9em; }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 15px; /* Reducido */
+            margin-bottom: 8px; /* Reducido */
+            font-size: 1.3em; /* Reducido */
+        }
+        h3 .emoji { font-size: 0.9em; }
+
+        p, li {
+            margin-bottom: 8px; /* Reducido */
+            font-size: 1em; /* Ajustado */
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li::before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em; /* Ojo si el ícono es muy grande */
+            margin-right: 0.5em;
+        }
+        
+        strong, b {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        code, .math {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eef;
+            padding: 2px 5px; /* Ajustado */
+            border-radius: 4px;
+            color: #d6336c;
+            font-size: 0.9em; /* Ajustado */
+            word-break: break-all; /* Para evitar desbordamientos en móviles */
+        }
+
+        .highlight {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2px 6px; /* Ajustado */
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            -webkit-overflow-scrolling: touch; /* Scroll más suave en iOS */
+            border: 1px solid #eee; /* Borde sutil al contenedor de la tabla */
+            border-radius: var(--border-radius);
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px; /* Ancho mínimo para forzar scroll si es necesario */
+            border-collapse: collapse;
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.05); No es necesario si el contenedor tiene borde */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px; /* Reducido */
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.9em; /* Para que quepa más en tablas */
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8; /* Un poco más sutil */
+        }
+        tr:hover {
+            background-color: #e9efff;
+        }
+
+        .example {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px; /* Reducido */
+            margin-top: 15px;
+            background-color: #fff9f0;
+        }
+        .example .solution {
+            margin-top: 8px; /* Reducido */
+            padding: 8px; /* Reducido */
+            background-color: #f0f8ff;
+            border: 1px dashed var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .glossary-term {
+            margin-bottom: 12px; /* Reducido */
+        }
+        .glossary-term dt {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1em; /* Reducido */
+        }
+        .glossary-term dd {
+            margin-left: 15px; /* Reducido */
+            padding-left: 8px; /* Reducido */
+            border-left: 2px solid var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px; /* Reducido */
+            margin-top: 25px; /* Reducido */
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            font-size: 0.85em; /* Reducido */
+        }
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Scrollbar personalizado (opcional, para navegadores Webkit) */
+        ::-webkit-scrollbar {
+            width: 8px; /* Reducido */
+            height: 8px; /* Para scrollbars horizontales */
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px; /* Reducido */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a7bc2;
+        }
+
+        /* --- ESTILOS RESPONSIVOS --- */
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px; /* Ajustar por si el header se hace más pequeño */
+                line-height: 1.6;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            header.main-header {
+                padding: 10px 0;
+            }
+            header.main-header h1 {
+                font-size: 1.6em;
+            }
+            header.main-header p {
+                font-size: 0.9em;
+                margin-bottom: 8px;
+            }
+            nav.main-nav a {
+                padding: 5px 10px;
+                font-size: 0.85em;
+            }
+
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            p, li {
+                font-size: 0.95em;
+            }
+            ul li::before {
+                margin-left: -1.2em; /* Ajustar si el ✓ se desalinea */
+            }
+
+            section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.85em;
+            }
+            table {
+                 min-width: 500px; /* Ajustar si es necesario */
+            }
+            
+            .glossary-term dt {
+                font-size: 1.05em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 55px; /* Header aún más compacto */
+            }
+            header.main-header h1 {
+                font-size: 1.4em;
+            }
+             header.main-header p {
+                font-size: 0.8em;
+            }
+            nav.main-nav {
+                gap: 5px; /* Menor espacio entre ítems de nav */
+            }
+            nav.main-nav a {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            p, li {
+                font-size: 0.9em;
+            }
+            code, .math {
+                font-size: 0.85em;
+            }
+
+            .example {
+                padding-left: 8px;
+            }
+            .example .solution {
+                padding: 6px;
+            }
+
+            th, td {
+                padding: 6px;
+                font-size: 0.8em;
+            }
+            table {
+                 min-width: 400px; /* Ajustar si es necesario */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1><span class="emoji">🧠</span> Guía Razones y Proporciones <span class="emoji">💡</span></h1> <!-- Título acortado para móvil -->
+        <p>Por ANGELA</p>
+        <nav class="main-nav">
+            <a href="#introduccion">Introducción</a>
+            <a href="#pasos-resolver">Pasos</a>
+            <a href="#representaciones">Representación</a>
+            <a href="#sistemas">Sistemas</a>
+            <a href="#tabla-combinada">Tabla</a>
+            <a href="#ejemplos">Ejemplos</a>
+            <a href="#glosario">Glosario</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="introduccion">
+            <h2><span class="emoji">📌</span> INTRODUCCIÓN</h2>
+            <p>¡Bienvenido/a a la guía definitiva sobre razones y proporciones! Esta guía está diseñada para ayudarte a <strong>identificar, interpretar y resolver</strong> problemas de este fascinante tema matemático. Exploraremos cómo abordar problemas que incluyen fracciones, sumas, productos, diferencias, proporciones continuas y sistemas de ecuaciones.</p>
+            <p>Aprenderás a:</p>
+            <ul>
+                <li>Traducir enunciados verbales a lenguaje algebraico de forma efectiva.</li>
+                <li>Identificar el método de resolución más adecuado para cada tipo de problema.</li>
+                <li>Resolver los problemas paso a paso, con claridad y confianza.</li>
+            </ul>
+            <p>Prepárate para dominar las razones y proporciones como nunca antes. ¡Comencemos!</p>
+        </section>
+
+        <section id="pasos-resolver">
+            <h2><span class="emoji">🔍</span> PASO 1: ¿QUÉ HACER PRIMERO CON UN ENUNCIADO?</h2>
+            <p>El primer paso es crucial. Una correcta interpretación del enunciado es la mitad del problema resuelto. Sigue estos sub-pasos:</p>
+            <ol style="padding-left: 20px;"> <!-- Añadido padding para ol/ul anidados -->
+                <li><strong>Lee con atención y comprensión:</strong> No te apresures. Lee el enunciado varias veces si es necesario, asegurándote de entender cada palabra y la relación entre las partes.</li>
+                <li><strong>Identifica qué te están dando:</strong>
+                    <ul style="padding-left: 20px;">
+                        <li>¿Es una <strong class="highlight">razón</strong> o <strong class="highlight">proporción</strong> explícita? (ej: "la razón es 3 es a 5", <code class="math">a/b = 4/7</code>)</li>
+                        <li>¿Se menciona una <strong class="highlight">suma</strong>, <strong class="highlight">diferencia</strong> o <strong class="highlight">producto</strong> entre las cantidades? (ej: "su suma es 80", "se diferencian en 10")</li>
+                        <li>¿Se habla de una <strong class="highlight">constante geométrica</strong> o una <strong class="highlight">proporción continua</strong> (aritmética o geométrica)?</li>
+                    </ul>
+                </li>
+                <li><strong>Detecta si son dos o más datos que se pueden convertir en ecuaciones:</strong> Cada pieza de información relevante usualmente se traduce en una ecuación. Busca relaciones que puedas expresar matemáticamente.</li>
+                <li><strong>Elige la representación adecuada:</strong> Basado en lo que identificaste, decide cómo vas a nombrar tus incógnitas (a, b, x, etc.) y cómo las relacionarás. Esto nos lleva al siguiente paso.</li>
+            </ol>
+        </section>
+
+        <section id="representaciones">
+            <h2><span class="emoji">🧾</span> PASO 2: ¿CÓMO REPRESENTAR SEGÚN EL ENUNCIADO?</h2>
+            <p>La forma en que representas la información matemáticamente es clave. Aquí tienes una guía rápida:</p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de relación</th>
+                            <th>Representación matemática</th>
+                            <th>Explicación Breve</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Razón <code class="math">a : b = m : n</code></td>
+                            <td><code class="math">a = mx</code>, <code class="math">b = nx</code></td>
+                            <td><code class="math">x</code> es la constante de proporcionalidad. Ayuda a mantener la relación.</td>
+                        </tr>
+                        <tr>
+                            <td>Razón <code class="math">a/b = m/n</code></td>
+                            <td><code class="math">a = m·x</code>, <code class="math">b = n·x</code> <br>o sustituir <code class="math">a = (m/n)b</code></td>
+                            <td>Similar al anterior. La sustitución es útil si tienes otra ecuación.</td>
+                        </tr>
+                        <tr>
+                            <td>Proporción geométrica continua (Media proporcional)</td>
+                            <td><code class="math">a : x = x : b</code> → <code class="math">x² = ab</code> → <code class="math">x = √(ab)</code></td>
+                            <td><code class="math">x</code> es la media proporcional entre <code class="math">a</code> y <code class="math">b</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Proporción aritmética continua (4 términos)</td>
+                            <td><code class="math">a - 3d, a - d, a + d, a + 3d</code></td>
+                            <td>Los términos están en progresión aritmética. <code class="math">d</code> es la razón aritmética. Facilita sumas y restas.</td>
+                        </tr>
+                         <tr>
+                            <td>Constante geométrica (o razón de una progresión geométrica)</td>
+                            <td>Si <code class="math">a/b = r</code>, <code class="math">b/c = r</code>...<br> Para dos términos: <code class="math">a/b = r</code> (constante dada) → <code class="math">a = rb</code>. <br>Si <code class="math">a/b = r²</code> (dado así): <code class="math">a = r²·b</code> o <code class="math">a = rk, b = k/r</code>. <br>Si <code class="math">a, b, c</code> están en P.G.: <code class="math">a, ar, ar²</code></td>
+                            <td><code class="math">r</code> es la razón geométrica. Útil para secuencias. Si te dan "la constante es 2/3" y es una proporción geométrica continua, <code class="math">a/b = b/c = 2/3</code>. Si es entre dos extremos, <code class="math">a/b = (2/3)²</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Suma / Diferencia</td>
+                            <td><code class="math">a + b = S</code>, <code class="math">a - b = D</code></td>
+                            <td>Representación directa de la operación.</td>
+                        </tr>
+                        <tr>
+                            <td>Producto</td>
+                            <td><code class="math">ab = P</code></td>
+                            <td>Representación directa del producto.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sistemas">
+            <h2><span class="emoji">🔧</span> PASO 3: ¿QUÉ SISTEMA DE ECUACIONES USAR?</h2>
+            <p>Una vez que has traducido el enunciado a ecuaciones algebraicas, el siguiente paso es resolverlas. El método dependerá de la cantidad y tipo de ecuaciones que tengas:</p>
+            <ul>
+                <li><strong>Hay solo una ecuación con una variable:</strong>
+                    <br>➤ ¡Genial! Simplemente <strong class="highlight">despejas directamente</strong> la variable.
+                </li>
+                <li><strong>Hay dos ecuaciones (generalmente con dos variables):</strong>
+                    <br>➤ Tienes varias opciones:
+                    <ul style="padding-left: 20px;">
+                        <li><strong class="highlight">Suma y Resta (Eliminación):</strong> Ideal cuando los coeficientes de una variable son iguales u opuestos.</li>
+                        <li><strong class="highlight">Sustitución:</strong> Despeja una variable en una ecuación y sustitúyela en la otra. Muy útil cuando una variable ya está despejada o es fácil de despejar.</li>
+                        <li><strong class="highlight">Igualación:</strong> Despeja la misma variable en ambas ecuaciones e iguala las expresiones resultantes.</li>
+                    </ul>
+                </li>
+                <li><strong>Hay una razón + otra condición (suma, diferencia o producto):</strong>
+                    <br>➤ Representa los números usando la constante de proporcionalidad (ej: <code class="math">a = mx, b = nx</code>). Luego, <strong class="highlight">usa la otra condición</strong> (suma, diferencia, producto) para formar una ecuación con <code class="math">x</code> y resolverla.
+                </li>
+            </ul>
+            <p>La elección del método a menudo depende de la estructura de las ecuaciones y de tu preferencia personal. ¡La práctica te hará más eficiente en elegir!</p>
+        </section>
+
+        <section id="tabla-combinada">
+            <h2><span class="emoji">📊</span> TABLA COMBINADA: TIPOS DE DATOS Y MÉTODO A USAR</h2>
+            <p>Esta tabla resume cómo abordar combinaciones comunes de información en problemas de razones y proporciones:</p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de información proporcionada</th>
+                            <th>Representación típica</th>
+                            <th>Método recomendado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Razón y Suma</td>
+                            <td><code class="math">a = mx, b = nx</code>; <code class="math">a + b = S</code></td>
+                            <td>Sustituir y sumar: <code class="math">mx + nx = S</code> → resolver para <code class="math">x</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Razón y Diferencia</td>
+                            <td><code class="math">a = mx, b = nx</code>; <code class="math">a - b = D</code></td>
+                            <td>Sustituir y restar: <code class="math">mx - nx = D</code> → resolver para <code class="math">x</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Razón y Producto</td>
+                            <td><code class="math">a = (m/n)b</code> o <code class="math">a=mx, b=nx</code>; <code class="math">ab = P</code></td>
+                            <td>Sustituir <code class="math">a</code> en producto: <code class="math">(m/n)b \cdot b = P</code> → cuadrática. O <code class="math">(mx)(nx) = P</code> → <code class="math">mnx^2 = P</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Suma y Diferencia</td>
+                            <td><code class="math">a + b = S</code>, <code class="math">a - b = D</code></td>
+                            <td>Sistema: Sumar ecuaciones.</td>
+                        </tr>
+                        <tr>
+                            <td>Suma y Producto</td>
+                            <td><code class="math">a + b = S</code>, <code class="math">ab = P</code></td>
+                            <td>Ecuación cuadrática: <code class="math">t² - St + P = 0</code>. O sustitución.</td>
+                        </tr>
+                        <tr>
+                            <td>Producto y Diferencia</td>
+                            <td><code class="math">ab = P</code>, <code class="math">a - b = D</code></td>
+                            <td>Sistema con sustitución: <code class="math">a = D + b</code>, luego <code class="math">(D + b)b = P</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Tres datos con razón</td>
+                            <td><code class="math">a = mx, b = nx</code>. Usar suma/diferencia.</td>
+                            <td>Usar razón y una condición para <code class="math">x</code>. Tercera verifica.</td>
+                        </tr>
+                        <tr>
+                            <td>Constante geométrica y diferencia (extremos P.G.C.)</td>
+                            <td><code class="math">a/b = k²</code> → <code class="math">a=cx^2, b=c</code>. <code class="math">b - a = N</code>.</td>
+                            <td>Usar proporción → <code class="math">b - a = N</code> → resolver <code class="math">x</code>. (Ver Ejem.3)</td>
+                        </tr>
+                        <tr>
+                            <td>Proporción aritmética continua (4 términos)</td>
+                            <td><code class="math">a-3d, a-d, a+d, a+3d</code></td>
+                            <td>Suma <code class="math">4a = S</code>. Dif. extremos <code class="math">6d = D</code>. Resolver <code class="math">a, d</code>.</td>
+                        </tr>
+                        <tr>
+                            <td>Media proporcional</td>
+                            <td><code class="math">a : x = x : b</code></td>
+                            <td><code class="math">x = √(ab)</code>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="ejemplos">
+            <h2><span class="emoji">📚</span> EJEMPLOS EXPLICADOS</h2>
+
+            <div class="example">
+                <h3>1. Razón y suma</h3>
+                <p><strong>Enunciado:</strong> La razón entre dos números es 3:5 y su suma es 64.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p>Sea <code class="math">a : b = 3 : 5</code>. → <code class="math">a = 3x</code>, <code class="math">b = 5x</code>.</p>
+                    <p>Suma: <code class="math">a + b = 64</code> → <code class="math">3x + 5x = 64</code></p>
+                    <p><code class="math">8x = 64</code> → <code class="math">x = 8</code></p>
+                    <p><code class="math">a = 3(8) = 24</code>, <code class="math">b = 5(8) = 40</code>.</p>
+                    <p><strong>R:</strong> 24 y 40.</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>2. Razón y producto</h3>
+                <p><strong>Enunciado:</strong> La razón entre dos números es 7:11 y su producto es 308.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p>Sea <code class="math">a : b = 7 : 11</code>. → <code class="math">a = 7x</code>, <code class="math">b = 11x</code>.</p>
+                    <p>Producto: <code class="math">ab = 308</code> → <code class="math">(7x)(11x) = 308</code></p>
+                    <p><code class="math">77x² = 308</code> → <code class="math">x² = 4</code> → <code class="math">x = 2</code></p>
+                    <p><code class="math">a = 7(2) = 14</code>, <code class="math">b = 11(2) = 22</code>.</p>
+                    <p><strong>R:</strong> 14 y 22.</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <h3>3. Proporción geométrica continua</h3>
+                <p><strong>Enunciado:</strong> En una P.G. continua, la constante de proporcionalidad es 2/3 y la diferencia entre extremos es 20.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p>Razón <code class="math">k = 2/3</code>. Extremos <code class="math">a, b</code>. <code class="math">a/b = k² = (2/3)² = 4/9</code>.</p>
+                    <p>→ <code class="math">a = 4x</code>, <code class="math">b = 9x</code>.</p>
+                    <p>Diferencia: <code class="math">b - a = 20</code> → <code class="math">9x - 4x = 20</code></p>
+                    <p><code class="math">5x = 20</code> → <code class="math">x = 4</code></p>
+                    <p><code class="math">a = 4(4) = 16</code>, <code class="math">b = 9(4) = 36</code>.</p>
+                    <p><strong>R:</strong> Extremos 16 y 36.</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>4. Suma y producto</h3>
+                <p><strong>Enunciado:</strong> Dos números suman 29 y su producto es 210.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p><code class="math">a + b = 29</code>, <code class="math">ab = 210</code>.</p>
+                    <p>Ecuación: <code class="math">t² - 29t + 210 = 0</code>.</p>
+                    <p><code class="math">(t - 14)(t - 15) = 0</code> → <code class="math">t_1 = 14, t_2 = 15</code>.</p>
+                    <p><strong>R:</strong> 14 y 15.</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>5. Tres datos con razón</h3>
+                <p><strong>Enunciado:</strong> Dos números en razón 2:3, suma 50, diferencia 10.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p><code class="math">a = 2x, b = 3x</code>.</p>
+                    <p>Suma: <code class="math">2x + 3x = 50</code> → <code class="math">5x = 50</code> → <code class="math">x = 10</code>.</p>
+                    <p><code class="math">a = 2(10) = 20</code>, <code class="math">b = 3(10) = 30</code>.</p>
+                    <p>Verificar diferencia: <code class="math">30 - 20 = 10</code>. Cumple.</p>
+                    <p><strong>R:</strong> 20 y 30.</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>6. Proporción aritmética continua</h3>
+                <p><strong>Enunciado:</strong> Suma de 4 términos de P.A. continua es 200, diferencia de extremos es 28.</p>
+                <div class="solution">
+                    <strong>Solución:</strong>
+                    <p>Términos: <code class="math">a-3d, a-d, a+d, a+3d</code>.</p>
+                    <p>Suma: <code class="math">4a = 200</code> → <code class="math">a = 50</code>.</p>
+                    <p>Dif. extremos: <code class="math">(a+3d) - (a-3d) = 6d = 28</code> → <code class="math">d = 14/3</code>.</p>
+                    <p><code class="math">T_1 = 50 - 14 = 36</code></p>
+                    <p><code class="math">T_2 = 50 - 14/3 = 136/3</code></p>
+                    <p><code class="math">T_3 = 50 + 14/3 = 164/3</code></p>
+                    <p><code class="math">T_4 = 50 + 14 = 64</code>.</p>
+                    <p><strong>R:</strong> 36, 136/3, 164/3, 64.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="glosario">
+            <h2><span class="emoji">💡</span> Glosario y Profundización</h2>
+            <p>Esta sección es para aclarar conceptos clave y entender el "porqué" detrás de algunas representaciones y métodos.</p>
+
+            <dl class="glossary-term">
+                <dt>Razón (o Razón Geométrica)</dt>
+                <dd>
+                    <p>Comparación de dos cantidades por división: <code class="math">a : b</code> o <code class="math">a/b</code>.</p>
+                    <p><strong>¿Por qué <code class="math">a = mx, b = nx</code>?</strong> Si <code class="math">a/b = m/n</code>, <code class="math">x</code> es la constante de proporcionalidad. <code class="math">a = mx</code> y <code class="math">b = nx</code>. Esto reduce incógnitas.</p>
+                </dd>
+            </dl>
+
+            <dl class="glossary-term">
+                <dt>Proporción (o Proporción Geométrica)</dt>
+                <dd>
+                    <p>Igualdad de dos razones: <code class="math">a/b = c/d</code>. Producto de extremos = producto de medios (<code class="math">ad = bc</code>).</p>
+                </dd>
+            </dl>
+            
+            <dl class="glossary-term">
+                <dt>Proporción Geométrica Continua</dt>
+                <dd>
+                    <p>Medios iguales: <code class="math">a/m = m/b</code>. <code class="math">m</code> es media proporcional, <code class="math">m = √(ab)</code>.</p>
+                    <p>Si <code class="math">k</code> es la razón de la P.G. (<code class="math">a,m,b</code>), entonces <code class="math">a/b = 1/k²</code> o <code class="math">b/a = k²</code>.</p>
+                </dd>
+            </dl>
+
+            <dl class="glossary-term">
+                <dt>Proporción Aritmética Continua</dt>
+                <dd>
+                    <p>Medios iguales: <code class="math">a - m = m - b</code>. <code class="math">m</code> es media diferencial, <code class="math">m = (a+b)/2</code>.</p>
+                    <p><strong>4 términos P.A. continua:</strong> <code class="math">a-3d, a-d, a+d, a+3d</code>. Suma <code class="math">= 4a</code>. Dif. extremos <code class="math">= 6d</code>.</p>
+                </dd>
+            </dl>
+            
+            <dl class="glossary-term">
+                <dt>Constante Geométrica</dt>
+                <dd>
+                    <p>En <code class="math">a/b = c/d = ... = k</code>, <code class="math">k</code> es la constante. Para P.G.C. <code class="math">x_1, x_2, x_3</code> con razón <code class="math">k=2/3</code>, si extremos son <code class="math">a,b</code>, entonces <code class="math">a/b = (2/3)^2 = 4/9</code>.</p>
+                </dd>
+            </dl>
+
+            <dl class="glossary-term">
+                <dt>Sistemas de Ecuaciones: Métodos</dt>
+                <dd>
+                    <p><strong>Sustitución:</strong> Útil con variable despejada. <strong>Igualación:</strong> Misma variable despejada en ambas. <strong>Suma/Resta:</strong> Coeficientes iguales/opuestos.</p>
+                </dd>
+            </dl>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Guía de Razones y Proporciones - Inspirado por Angela.</p>
+        <p>¡Espero que esta guía te sea de gran utilidad!</p>
+    </footer>
+
+    <script>
+        // Animación de aparición al hacer scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => { observer.observe(section); });
+
+        // Smooth scroll para anclas (mejorado para header fijo)
+        document.querySelectorAll('nav.main-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const header = document.querySelector('header.main-header');
+                    const headerOffset = header ? header.offsetHeight : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 10; // 10px de margen extra
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        // behavior: "smooth" ya está en <html> CSS
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
